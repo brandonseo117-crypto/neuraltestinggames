@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who Fired?</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- START -->
+    <section id="screen-start" class="screen">
+      <h1>Who Fired?</h1>
+      <p class="lead">Each set of pictures was liked by one brain cell.<br>Which part of the brain does that cell come from?</p>
+
+      <div class="choices-info">
+        <div class="info edges"><b>Edges</b><span>Likes edges, where light meets dark.</span></div>
+        <div class="info shapes"><b>Shapes</b><span>Likes curves, round shapes and textures.</span></div>
+        <div class="info objects"><b>Objects</b><span>Likes faces, animals and things you could name.</span></div>
+      </div>
+
+      <p class="lead small">There is no timer. Take as long as you like.</p>
+      <button id="btn-start" class="primary">Start</button>
+      <button id="btn-skip" class="secondary">Skip the warm-up</button>
+    </section>
+
+    <!-- WARM-UP: MEET THE GROUPS -->
+    <section id="screen-learn" class="screen" hidden>
+      <div class="progress">
+        <span id="learn-progress">Warm-up: group 1 of 3</span>
+        <div id="learn-dots" class="dots"></div>
+      </div>
+      <h2 id="learn-name" class="group-name"></h2>
+      <p id="learn-desc" class="lead"></p>
+      <div class="stage">
+        <div id="learn-grid" class="grid"></div>
+      </div>
+      <button id="btn-learn-next" class="primary">Next</button>
+    </section>
+
+    <!-- BETWEEN PRACTICE AND THE REAL GAME -->
+    <section id="screen-ready" class="screen" hidden>
+      <h1>Ready to play</h1>
+      <p class="lead">Now for the real game.<br>You will see 10 picture sets. Take your time.</p>
+      <button id="btn-ready" class="primary">Start the game</button>
+    </section>
+
+    <!-- PLAY -->
+    <section id="screen-play" class="screen" hidden>
+      <div class="progress">
+        <span id="progress-text">Picture set 1 of 10</span>
+        <div id="progress-dots" class="dots"></div>
+      </div>
+
+      <p class="question">What do these pictures have in common?</p>
+
+      <div class="stage">
+        <div id="grid" class="grid"></div>
+      </div>
+
+      <!-- Answer panel replaces the buttons, so the pictures stay visible. -->
+      <div id="reveal" class="reveal" hidden>
+        <p id="reveal-verdict" class="verdict"></p>
+        <p id="reveal-answer" class="answer"></p>
+        <p id="reveal-tell" class="tell"></p>
+        <p id="reveal-stats" class="stats"></p>
+        <button id="btn-next" class="primary">Next</button>
+      </div>
+
+      <div id="choices" class="choices">
+        <button class="choice edges" data-region="V1">Edges</button>
+        <button class="choice shapes" data-region="V4">Shapes</button>
+        <button class="choice objects" data-region="IT">Objects</button>
+      </div>
+      <button id="btn-hint" class="secondary">Show me a hint</button>
+
+      <!-- Below the buttons so they never move when the hint opens. -->
+      <div id="hint" class="hint" hidden>
+        <p>This brain cell did <b>not</b> like these:</p>
+        <div id="hint-strip" class="strip"></div>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section id="screen-over" class="screen" hidden>
+      <h1>All done</h1>
+      <p class="result">You matched <b id="final-correct">0</b> out of <b id="final-total">10</b>.</p>
+      <p id="final-message" class="lead"></p>
+      <button id="btn-again" class="primary">Play again</button>
+    </section>
+
+  </main>
+
+  <script src="neurons.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

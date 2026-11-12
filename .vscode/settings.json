@@ -1,0 +1,17 @@
+{
+  // gamedata/ holds ~327k images. Without these exclusions, Live Server and
+  // VS Code try to watch every file, which can hang or crash the server.
+  "liveServer.settings.ignoreFiles": [
+    "gamedata/**",
+    "neurons.json",
+    "tools/**",
+    ".claude/**",
+    ".vscode/**"
+  ],
+  "files.watcherExclude": {
+    "**/gamedata/**": true
+  },
+  "search.exclude": {
+    "**/gamedata/**": true
+  }
+}
